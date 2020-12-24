@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>新式调用</title>
+</head>
+<body>
+    new.html page
+    <ul>
+        <li><button onclick="n()">新式调用</button></li>
+    </ul>
+    <script>
+        // 新式注入
+        CefSharp.BindObjectAsync("storeObj"); //这里会触发Form端的ResolveObject事件
+        function n() {
+            // 注意异步方法的输出顺序
+            var r1 = storeObj.buy(15);
+            console.log(r1)
+            storeObj.sell().then((r2) => {
+                console.log(r2)
+            });
+            console.log("end");
+        }
+    </script>
+</body>
+</html>

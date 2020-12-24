@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>index page</title>
+</head>
+<body>
+    obsolete page
+    <ul>
+        <li><button onclick="o()">老式调用</button></li>
+    </ul>
+
+    <script>
+        // 老式注入，无需在页面执行bind，因为只针对单页面（Single Page Applications）
+        // 所以很容易造成同名冲突，已经不推荐使用了
+        function o() {
+            var s = obs.say("老注入");
+            alert(s);
+
+            obs.showBox();//注意默认是小写的 驼峰
+        }
+    </script>
+</body>
+</html>
